@@ -136,8 +136,8 @@ PHONE_VERIFICATION = {
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'yasirshaikhkhan4633@gmail.com'
-EMAIL_HOST_PASSWORD = 'Internship@1'
+EMAIL_HOST_USER = 'your email'
+EMAIL_HOST_PASSWORD = 'you email password'
 EMAIL_PORT = 587
 
 MEDIA_URL = '/media/'
