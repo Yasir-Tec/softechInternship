@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verify User's OTP</title>
+</head>
+<body>
+<form action="verifyOtp/" method="post">
+    {% csrf_token %}
+    {% block content %}
+    {% if emailFound %}
+    <center>
+        <h3> verify OTP</h3>
+        <label>Enter OTP</label>
+        <input type="text" name="getOtp">
+        <input type="submit" value="submit">
+
+    </center>
+    {% endif %}
+</form>
+{% if msg %}
+{{msg}}
+{% endif %}
+
+{% if wrongEmail %}
+<center>
+    <h2><b>{{wrongEmail}}</b></h2>
+    <button onclick="tryAgain()">Try Again</button>
+    <button onclick="exit()">EXIT</button>
+</center>
+{% endif %}
+
+{% endblock %}
+
+
+<script>
+    function tryAgain()
+    {
+        window.location = "http://127.0.0.1:8000/userLoginPage/forgotUserPass/"
+    }
+    function exit()
+    {
+        window.location = "http://127.0.0.1:8000/"
+    }
+</script>
+</body>
+
+</html>

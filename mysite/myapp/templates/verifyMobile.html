@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verify Mobile</title>
+</head>
+<body>
+{% block content %}
+
+{% csrf_token %}
+<form action="verifyMobile/" method="post">
+    {% csrf_token %}
+    {% if yes %}
+       {% csrf_token %}
+    {{ yes }}
+    <center>
+        <h3><b>You have registered Successfully!</b></h3><br><br>
+        <button onclick="redirect">EXIT</button>
+
+    </center>
+    {% endif %}
+    <center>
+
+        <h3><b>VERIFY MOBILE NUMBER</b></h3>
+        <input type="text" name="getotp">
+        <input type="submit" value="submit">
+
+    </center>
+</form>
+{% endblock %}
+</body>
+
+
+<script>
+    function redirect()
+    {
+        window.location("http://127.0.0.1:8000")
+     }
+
+
+</script>
+
+
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+li a.active {
+  color: white;
+  background-color: #4CAF50;
+}
+
+
+
+    </style>
+</head>
+<body>
+{% block content %}
+{% csrf_token %}
+
+{% if first_condition %}
+{{ first_condition }}
+<ul>
+    <li><a class="active" href="#home">Home</a></li>
+    <li style="pull-right"><a href="editProfile/">Edit Profile</a></li>
+    <li><a href="userLogout/">Logout</a></li>
+    <li><a href="#about">About</a></li>
+</ul>
+{% endif %}
+
+{% if second_condition %}
+<center>
+    <h2><b>SORRY! {{username}}</b></h2>
+    <h3>{{ second_condition }}</h3>
+    <button onclick="loginAgain()">Try Again</button>
+    <button onclick="exit()">EXIT</button>
+</center>
+{% endif %}
+
+{% if third_condition %}
+<center>
+    <h2><b>Sorry!</b></h2>
+    <h3><b>You have entered wrong username or password</b></h3>
+    <button onclick="loginAgain()">Try Again</button>
+    <button onclick="exit()">EXIT</button>
+</center>
+{% endif %}
+{% endblock %}
+<script>
+  function loginAgain()
+  {
+      window.location = "http://127.0.0.1:8000/userLoginPage/"
+  }
+  function exit()
+  {
+      window.location = "http://127.0.0.1:8000"
+  }
+
+
+
+</script>
+</body>
+</html>

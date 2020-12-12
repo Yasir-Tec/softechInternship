@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Profile</title>
+</head>
+<body>
+<form action="updated/" method="post">
+    {% block content %}
+    {% csrf_token %}
+    {% for i in userdata %}
+    <label> Name:</label>
+    <input type="text" name="fname" value={{i.first_name}}> <input type="text" name="lname"
+                                                                   value="{{i.last_name}}"><br><br>
+    <label>Email : </label>
+    <input type="text" name="email" value="{{i.email}}"><br><br>
+    <label>Mobile Number :</label>
+    <input type="text" name="mobile" value="{{i.mobile}}"><br><br>
+    <label>Username :</label>
+    <input type="text" name="username" value="{{i.username}}"><br><br>
+    <input type="submit" value="UPDATE">
+    {% endfor %}
+    {% endblock %}
+</form>
+</body>
+</html>

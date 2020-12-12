@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+</head>
+<body>
+<center>
+    {% block content %}
+    {% csrf_token %}
+
+    {% if first_condition %}
+    <h1><b>Thank You!</b></h1>
+    <h3>You have registered Successfully!</h3>
+    <button onclick="login()">LOGIN</button>
+    <button onclick="exit()">EXIT</button>
+    {% endif %}
+
+    {% if second_condition %}
+    <h1><b>Sorry!</b></h1>
+    <h3><b>{{second_condition}}</b></h3>
+    <h5>(Check out verification link on your registered email.)</h5>
+    <button onclick="tryOTP()">TRY AGAIN</button>
+    {% endif %}
+
+    {% if third_condition %}
+    <h1><b>Sorry!</b></h1>
+    <h3><b>{{third_condition}}</b></h3>
+    <button onclick="tryOTP()">TRY AGAIN</button>
+    <button onclick="resendOTP"> Re-send </button>
+    {% endif %}
+
+
+    {% endblock %}
+</center>
+<script>
+    function exit()
+    {
+        window.location = "http://127.0.0.1:8000"
+    }
+    function tryOTP()
+    {
+        window.location = "http://127.0.0.1:8000/redirect/"
+    }
+    function login()
+    {
+        window.location = "http://127.0.0.1:8000/userLoginPage/"
+    }
+</script>
+</body>
+</html>
