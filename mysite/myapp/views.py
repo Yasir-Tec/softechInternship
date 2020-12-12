@@ -143,14 +143,14 @@ def signup(request):
             email.send()
             #################################################### MOBILE OTP MODULE ############################
 
-            account_sid = "ACb462a6df295393c8a57e9dbc2771a0a6"
-            account_token = "f914d9d3fff1195f2d939ea42b333f3c"
+            account_sid = "your twillo account sid"
+            account_token = "your twillo account token"
             ##################################################### send mobile OTP ####################
             print('form saved but phone isnt')
             client = Client(account_sid, account_token)
 
             message = client.messages.create(
-                to="+918806281949",
+                to=mobile,
                 from_='(351) 999-8961',
                 body=msg_body)
 
